@@ -18,7 +18,9 @@ class MovieRepository {
     if (response.statusCode == 200) {
       print("success");
       print(response.body.toString());
-      return json.decode(response.body);
+      final jsonData = jsonDecode(response.body);
+      final results = jsonData['results'] as List<dynamic>;
+      return results.map((movie) => Movie.fromJson(movie)).toList();
     } else {
       throw Exception('Failed to fetch data');
     }

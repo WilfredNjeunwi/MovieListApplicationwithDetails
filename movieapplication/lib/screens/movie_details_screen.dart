@@ -35,8 +35,7 @@ class MovieDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Text(
-              'Price 200',
-              //'Price: \$${movie.price.toStringAsFixed(2)}',
+              'Vote Average: \$${movie.voteAverage.toStringAsFixed(2)}',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,

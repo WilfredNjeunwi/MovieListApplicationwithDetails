@@ -26,19 +26,25 @@ class _MovieListScreenState extends State<MovieListScreen> {
       body: Consumer<MovieProvider>(
         builder: (context, movieProvider, child) {
           if (movieProvider.isLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
+          } else if (movieProvider.isSucces) {
+            final movies = movieProvider.movies;
+            return ListView.builder(
+              itemCount: movies.length,
+              itemBuilder: (context, index) {
+                final movie = movies[index];
+                return GestureDetector(
+                  onTap: () {},
+                  child: ListTile(
+                    title: Text(movie.title),
+                    subtitle: Text(movie.releaseDate.toString()),
+                  ),
+                );
+              },
+            );
           }
-
-          final movies = movieProvider.movies;
-          return ListView.builder(
-            itemCount: movies.length,
-            itemBuilder: (context, index) {
-              final movie = movies[index];
-              return ListTile(
-                title: Text(movie.title),
-                subtitle: Text(movie.description),
-              );
-            },
+          return Center(
+            child: Text("Failed to get data"),
           );
         },
       ),
