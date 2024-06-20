@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import '../models/movie.dart';
 import '../repository/repository.dart';
 
+// this provider helps for the state management of the application. A movie can be loading or loaded(success)
 class MovieProvider extends ChangeNotifier {
   final MovieRepository _movieRepository;
   List<Movie> _movies = [];

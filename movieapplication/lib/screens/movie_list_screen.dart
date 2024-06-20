@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/provider.dart';
+import 'movie_details_screen.dart';
 
 class MovieListScreen extends StatefulWidget {
   @override
@@ -34,10 +35,17 @@ class _MovieListScreenState extends State<MovieListScreen> {
               itemBuilder: (context, index) {
                 final movie = movies[index];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieDetailsScreen(movie: movie),
+                      ),
+                    );
+                  },
                   child: ListTile(
                     title: Text(movie.title),
-                    subtitle: Text(movie.releaseDate.toString()),
+                    subtitle: Text(movie.releaseDate.toString().split(' ')[0]),
                   ),
                 );
               },

@@ -35,7 +35,23 @@ class MovieDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Text(
-              'Vote Average: \$${movie.voteAverage.toStringAsFixed(2)}',
+              'Vote Count: ${movie.voteCount.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Vote Average: ${movie.voteAverage.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Released Date: \$${movie.releaseDate}',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,

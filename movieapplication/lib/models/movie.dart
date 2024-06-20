@@ -1,3 +1,4 @@
+// this is the movie model
 class Movie {
   final int id;
   final String title;
@@ -21,6 +22,7 @@ class Movie {
     required this.originalTitle,
   });
 
+// this helps to convert the request json to a movie
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
         id: json['id'],
