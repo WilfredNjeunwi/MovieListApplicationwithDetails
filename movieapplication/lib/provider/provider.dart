@@ -17,9 +17,9 @@ class MovieProvider extends ChangeNotifier {
       _isLoading = true;
       notifyListeners();
 
-      _movies = await _movieRepository.fetchMovies();
+      _movies = await _movieRepository.getMovies();
     } catch (error) {
-      rethrow;
+      throw (error);
     } finally {
       _isLoading = false;
       notifyListeners();

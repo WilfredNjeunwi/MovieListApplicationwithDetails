@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:movieapplication/repository/repository.dart';
+import 'package:provider/provider.dart';
 import '../provider/provider.dart';
 import 'movie_list_screen.dart';
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class StarterScreen extends StatelessWidget {
   @override
@@ -21,15 +26,15 @@ class StarterScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Navigate to the MovieListScreen
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => ChangeNotifierProvider(
-                //       create: (_) => MovieProvider(),
-                //       child: MovieListScreen(),
-                //     ),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider(
+                      create: (_) => MovieProvider(MovieRepository()),
+                      child: MovieListScreen(),
+                    ),
+                  ),
+                );
               },
               child: Text('View Movies'),
             ),
