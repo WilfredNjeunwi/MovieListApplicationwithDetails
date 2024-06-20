@@ -25,7 +25,6 @@ class StarterScreen extends StatelessWidget {
             SizedBox(height: 24.0),
             ElevatedButton(
               onPressed: () {
-                // Navigate to the MovieListScreen
                 Navigator.push(
                   context,
                   MaterialPageRoute(
