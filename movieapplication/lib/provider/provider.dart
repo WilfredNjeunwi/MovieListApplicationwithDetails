@@ -29,6 +29,7 @@ class MovieProvider extends ChangeNotifier {
       if (_movies.isNotEmpty) {
         _isSuccess = true;
         _isLoading = false;
+        print(_movies);
       }
       notifyListeners();
     }
